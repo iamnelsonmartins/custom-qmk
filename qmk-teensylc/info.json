@@ -1,0 +1,15 @@
+{
+    "keyboard_name": "2x2 TLC",
+    "url": "",
+    "maintainer": "qmk",
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                { "matrix": [0, 0], "x": 0, "y": 0 },
+                { "matrix": [0, 1], "x": 1, "y": 0 },
+                { "matrix": [1, 0], "x": 0, "y": 1 },
+                { "matrix": [1, 1], "x": 1, "y": 1 }
+            ]
+        }
+    }
+}
