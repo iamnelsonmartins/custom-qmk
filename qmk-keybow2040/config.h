@@ -14,7 +14,12 @@
 #define I2C1_SCL_PIN    GP5
 
 // Macropad uses Direct Pins
-#define DIRECT_PINS {{ GP18, GP14, GP10, GP6 },{ GP19, GP15, GP11, GP7 },{ GP20, GP16, GP12, GP8 },{ GP21, GP17, GP13, GP9 }}
+#define DIRECT_PINS { \
+    { GP18, GP14, GP10, GP6 },\
+    { GP19, GP15, GP11, GP7 },\
+    { GP20, GP16, GP12, GP8 },\
+    { GP21, GP17, GP13, GP9 } \
+}
 
 #ifdef RGB_MATRIX_ENABLE
     #define DRIVER_COUNT 1
@@ -24,4 +29,3 @@
 
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET // Activates the double-tap behavior
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 500U // Timeout window in ms in which the double tap can occur.
-

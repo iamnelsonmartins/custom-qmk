@@ -2,30 +2,30 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* LAYOUT 0
-     * ┌────┬───┬───┬───┐
-     * │ 3  │ 7 │ B │ F │
-     * ├────┼───┼───┼───┤
-     * │ 2  │ 6 │ A │ E │
-     * ├────┼───┼───┼───┤
-     * │ 1  │ 5 │ 9 │ D │
-     * ├────┼───┼───┼───┤
-     * │ L1 │ 4 │ 8 │ C │
-     * └────┴───┴───┴───┘
+     * ┌─────┬───┬───┬───┐
+     * │  0  │ 1 │ 2 │ 3 │
+     * ├─────┼───┼───┼───┤
+     * │  4  │ 5 │ 6 │ 7 │
+     * ├─────┼───┼───┼───┤
+     * │  8  │ 9 │ A │ B │
+     * ├─────┼───┼───┼───┤
+     * │ L1  │ C │ D │ E │
+     * └─────┴───┴───┴───┘
      */
 
     /* LAYOUT 1
-     * ┌───┬───┬───┬───┐
-     * │ _ │ _ │ _ │ _ │
-     * ├───┼───┼───┼───┤
-     * │ _ │ _ │ _ │ _ │
-     * ├───┼───┼───┼───┤
-     * │ _ │ _ │ _ │ _ │
-     * ├───┼───┼───┼───┤
-     * │ _ │ _ │ _ │ _ │
-     * └───┴───┴───┴───┘
+     * ┌───┬───┬───┬────┐
+     * │ _ │ _ │ _ │ _  │
+     * ├───┼───┼───┼────┤
+     * │ _ │ _ │ _ │ _  │
+     * ├───┼───┼───┼────┤
+     * │   │ _ │ _ │ _  │
+     * ├───┼───┼───┼────┤
+     * │ _ │ _ │ _ │ L2 │
+     * └───┴───┴───┴────┘
      */
 
-         /* LAYOUT 2
+    /* LAYOUT 2
      * ┌───┬───┬───┬───────┐
      * │ _ │ _ │ _ │ reset │
      * ├───┼───┼───┼───────┤
@@ -37,66 +37,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * └───┴───┴───┴───────┘
      */
     [0] = LAYOUT(
-        KC_3,       KC_7,       KC_B,     KC_F,
-        KC_2,       KC_6,       KC_A,     KC_E,
-        KC_1,       KC_5,       KC_9,     KC_D,
-        MO(1),      KC_4,       KC_8,     KC_C
+        KC_0, KC_1, KC_2, KC_3,
+        KC_4, KC_5, KC_6, KC_7,
+        KC_8, KC_9, KC_A, KC_B,
+        MO(1), KC_E, KC_F, KC_G
     ),
 
     [1] = LAYOUT(
-        KC_NO ,     KC_NO,      KC_NO,      KC_NO,
-        KC_NO ,     KC_NO,      KC_NO,      KC_NO,
-        KC_LEFT,    KC_DOWN,    KC_UP,      KC_RIGHT,
-        _______,    KC_NO,      KC_NO,      MO(2)
+        KC_NO,   KC_NO, KC_NO, KC_NO,
+        KC_NO,   KC_NO, KC_NO, KC_NO,
+        KC_NO,   KC_NO, KC_NO, KC_NO,
+        KC_TRNS, KC_NO, KC_NO, MO(2)
     ),
 
     [2] = LAYOUT(
-        KC_NO ,     KC_NO,      KC_NO,      QK_BOOT,
-        KC_NO ,     KC_NO,      KC_NO,      KC_NO,
-        KC_NO,      KC_NO,      KC_NO,      KC_NO,
-        _______,    KC_NO,      KC_NO,      _______
+        KC_NO,   KC_NO, KC_NO, QK_BOOT,
+        KC_NO,   KC_NO, KC_NO, KC_NO,
+        KC_NO,   KC_NO, KC_NO, KC_NO,
+        KC_TRNS, KC_NO, KC_NO, KC_TRNS
     )
 };
 
-#ifdef RGB_MATRIX_ENABLE
-    const is31_led PROGMEM g_is31_leds[DRIVER_LED_TOTAL] = {
-    {0, C9_1,  C3_1,  C5_1},
-    {0, C9_2,  C3_2,  C5_2}, 
-    {0, C9_3,  C2_1,  C5_3},
-    {0, C9_4,  C2_2,  C5_4},
-    {0, C8_1,  C6_1,  C7_1}, 
-    {0, C8_2,  C6_2,  C7_2}, 
-    {0, C8_3,  C6_3,  C7_3}, 
-    {0, C8_4,  C6_4,  C7_4},
-    {0, C9_9,  C3_9,  C5_9}, 
-    {0, C9_10, C3_10, C5_10}, 
-    {0, C9_11, C2_9,  C5_11}, 
-    {0, C9_12, C2_10, C5_12},
-    {0, C8_9,  C6_9,  C7_9}, 
-    {0, C8_10, C6_10, C7_10},
-    {0, C8_11, C6_11, C7_11},
-    {0, C8_12, C6_12, C7_12}, 
-    };
 
-    led_config_t g_led_config = {
-        {
-            {0,  4,  8,   12},
-            {1,  5,  9,   13},
-            {2,  6,  10,  14},
-            {3,  7,  11,  15},
-        },{ 
-            { 0, 0 }, { 56, 0  }, { 112, 0  },{ 224, 0  },
-            { 0, 16 },{ 56, 16 }, { 112, 16 },{ 224, 16 },
-            { 0, 32 },{ 56, 32 }, { 112, 32 },{ 224, 32 },
-            { 0, 64 },{ 56, 64 }, { 112, 64 },{ 224, 64 },
-
-        }, {
-            4,4,4,4,
-            4,4,4,4,
-            4,4,4,4,
-            4,4,4,4
-            }
-    };
-#endif
-
-
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    #ifdef CONSOLE_ENABLE
+        uprintf("row: %u, col: %u, pressed: %u\n", record->event.key.row, record->event.key.col, record->event.pressed);
+    #endif 
+return true;
+}
