@@ -10,7 +10,7 @@ _A short description of the keyboard/project_
 ## How to use the keyboard
 
     - Clone the file or Download the zip from github
-    - Copy folder to keyboards inside QMK_FIRMWARE (and change to keybow2040)
+    - Copy folder to keyboards inside QMK_FIRMWARE
     - RUN qmk compile --keyboard keybow2040 --keymap default
 
 ## Bootloader
@@ -19,4 +19,4 @@ Enter the bootloader in 3 ways:
 
 -   **Physical reset button right**: Press and Hold top right button while connecting usb-c cable
 -   **Physical reset button left**: Press and Hold top right button and click the top left
--   **Keycode in layout**: Press the key mapped to `RESET` if it is available - bottom left key+bottom right key and top right key
+-   **Keycode in layout**: Press the key mapped to `RESET` if it is available - bottom left key+bottom right key and top right key (if available)
